@@ -56,7 +56,7 @@ function App() {
     <div className="App">
       <div className="resultMarquee">
         {stock && (
-          <h2>
+          <h2 className={direction}>
             {stock.id}:{' '}
             <span>
               {' '}

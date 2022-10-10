@@ -51,3 +51,11 @@ code {
   /* left: 120%; */
   /* animation: scroll 5s linear infinite; */
 }
+
+.up {
+  color: green;
+}
+
+.down {
+  color: red;
+}
