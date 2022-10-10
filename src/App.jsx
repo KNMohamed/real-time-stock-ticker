@@ -14,6 +14,7 @@ function App() {
   const [direction, setDirection] = useState('');
 
   useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
     const ws = new WebSocket('wss://streamer.finance.yahoo.com');
     protobuf.load('./YPricingData.proto', (error, root) => {
       const Yaticker = root.lookupType('yaticker');
@@ -22,7 +23,7 @@ function App() {
         console.log('connected');
         ws.send(
           JSON.stringify({
-            subscribe: ['GME'],
+            subscribe: [(params.get('symbol') || 'GME').toUpperCase()],
           }),
         );
       };
